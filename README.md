@@ -1,4 +1,4 @@
-# CygnusRFI: An open-source RFI analyzer for Ground Stations & Radio Telescopes
+# CygnusRFI: An open-source RFI analysis tool for Ground Stations & Radio Telescopes
 <p align="center">
   <img src="https://i.imgur.com/lH2OOTd.png?raw=true" alt="VIRGO Spectrometer"/>
 </p>
