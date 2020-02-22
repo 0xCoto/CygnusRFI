@@ -75,7 +75,7 @@ python CygnusRFI.py -b 2400000 -c 2048 -t 0.5 -d 5 -f 400000000 -F 430000000
 From there, the interactive software should ask you for the parameters of your RFI measurement, which you can simple enter in and let **CygnusRFI** do its magic! Once the observation is finished, your data will be processed, analyzed and saved as `rfi_plot.png` (in the same directory as `observe.py`).
 
 ## To do
-- [ ] Argparse argument support
+- [x] Argparse argument support
 - [ ] Support spectrum calibration to flatten the bandpass shape of the SDR out
 
 ## Credits
