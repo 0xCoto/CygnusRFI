@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+import argparse
 from time import sleep
 
 # Define argparse arguments
