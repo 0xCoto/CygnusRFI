@@ -63,7 +63,13 @@ Once the repository has been cloned, open `pfb.grc` using GNU Radio Companion an
 Once **CygnusRFI** is downloaded on your system and the `SDR Source` block has been replaced (unless you use an RTL-SDR where you shouldn't need to change anything), you can begin monitoring RFI with **CygnusRFI** by running:
 
 ```
-python CygnusRFI.py
+python CygnusRFI.py -b BANDWIDTH -c NUMBER_OF_CHANNELS -t INTEGRATION_TIME_PER_FFT_SAMPLE -d DURATION_PER_SPECTRUM_SAMPLE -f LOWER_FREQUENCY -F HIGHER_FREQUENCY
+```
+(All units in SI (**Hz**, **sec**))
+
+Example:
+```
+python CygnusRFI.py -b 2400000 -c 2048 -t 0.5 -d 5 -f 400000000 -F 430000000
 ```
 
 From there, the interactive software should ask you for the parameters of your RFI measurement, which you can simple enter in and let **CygnusRFI** do its magic! Once the observation is finished, your data will be processed, analyzed and saved as `rfi_plot.png` (in the same directory as `observe.py`).
