@@ -1,14 +1,15 @@
+#!/usr/bin/env python
 import os
 import sys
 from time import sleep
 
 #Define GRC observation parameters
 bandwidth = '2400000'
-channels = '1024'
+channels = '2048'
 t_int = '1'
-duration = '10'
-fmin = 1400000000
-fmax = 1500000000
+duration = '3'
+fmin = 1310000000
+fmax = 1330000000
 
 nbins = str(int(float(t_int) * float(bandwidth)/float(channels)))
 
@@ -65,7 +66,7 @@ if proceed.lower() != 'n' and proceed.lower() != 'no':
         
         q = q+1
     print('\n\033[1;33;48m+=================================================================+')
-    print('\033[1;33;48m| \033[1;32;48mMeasurement finished!\033[1;33;48m |')
+    print('\033[1;33;48m| \033[1;32;48mMeasurement finished!\033[1;33;48m                                           |')
     print('\033[1;33;48m+=================================================================+\n')
     
     f_center = str(fmin)
