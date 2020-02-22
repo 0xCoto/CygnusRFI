@@ -4,7 +4,7 @@
 </p>
 
 ## About CygnusRFI
-**CygnusRFI** is an easy-to-use **open-source** Radio Frequency Interference (RFI) analysis tool, based on [Python](https://www.python.org) and [GNU Radio Companion](https://wiki.gnuradio.org/index.php/GNURadioCompanion) (GRC) that is conveniently applicable to any ground station/radio telescope working with a GRC-supported software-defined radio (SDR). In addition to data acquisition, CygnusRFI also carries out automated analysis of the recorded data, producing a series of **averaged spectra** covering a wide range of frequencies of interest. CygnusRFI is built for ground station operators, radio astronomers, amateur radio operators and anyone who wishes to get an idea of how "radio-quiet" their environment is, using inexpensive instruments like SDRs.
+**CygnusRFI** is an easy-to-use **open-source** Radio Frequency Interference (RFI) analysis tool, based on [Python](https://www.python.org) and [GNU Radio Companion](https://wiki.gnuradio.org/index.php/GNURadioCompanion) (GRC) that is conveniently applicable to any ground station/radio telescope working with a GRC-supported software-defined radio (SDR). In addition to data acquisition, **CygnusRFI** also carries out automated analysis of the recorded data, producing a series of **averaged spectra** covering a wide range of frequencies of interest. **CygnusRFI** is built for ground station operators, radio astronomers, amateur radio operators and anyone who wishes to get an idea of how "radio-quiet" their environment is, using inexpensive instruments like SDRs.
 
 A list of GRC-supported SDRs can be found [here](https://wiki.gnuradio.org/index.php/Hardware).
 
@@ -76,7 +76,7 @@ From there, the interactive software should ask you for the parameters of your R
 
 ## To do
 - [x] Argparse argument support
-- [ ] Support spectrum calibration to flatten the bandpass shape of the SDR out
+- [ ] Support spectrum calibration to flatten out the bandpass shape of the SDR
 
 ## Credits
 **CygnusRFI** was created by **[Apostolos Spanakis-Misirlis](https://www.github.com/0xCoto/)**.
