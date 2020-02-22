@@ -47,8 +47,6 @@ try:
             allarrays.append(final)
         z_final = np.concatenate(allarrays,axis=1)
         
-        #Define numpy array for Power vs Time plot
-        
         #Number of sub-integrations
         nsub = z_final.shape[0]
         
