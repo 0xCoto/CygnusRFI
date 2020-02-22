@@ -36,7 +36,7 @@ We can mathematically interpret the dynamic spectrum as a two-dimensional matrix
 
 In `rfi_plotter.py`, this matrix is defined as a 2D numpy array at [line 29](https://github.com/0xCoto/VIRGO/blob/master/plot.py#L29). //EDIT MEEEEEEEEEEEEEEEEEEEEEEEE
 
-![alt text](https://i.imgur.com/JksgAav.png)
+![alt text](https://i.imgur.com/lSlXbXq.png)
 
 ### Averaged Spectrum Derivation
 If we average with respect to the frequency channels (`zmean = np.mean(a=z, axis=0)`), we get a new *1* × *2<sup>n</sup>* **row matrix** (or **row vector**), which is the <ins>averaged spectrum</ins> of the observation. This is defined at [line 39](https://github.com/0xCoto/VIRGO/blob/master/plot.py#L39) of `rfi_plotter.py`. //EDIT MEEEEEEEEEEEEEEEEEEEEEEEE
