@@ -38,10 +38,10 @@ Using the frequency-hopping technique, we can synthesize a number of spectra, co
 
 ![alt text](https://i.imgur.com/lSlXbXq.png)
 
-In `rfi_plotter.py`, these matrices ared defined as 2D numpy arrays at [line 29](https://github.com/0xCoto/VIRGO/blob/master/plot.py#L29). ///
+In `rfi_plotter.py`, these matrices are defined as 2D numpy arrays from [line 40 to 48](https://github.com/0xCoto/CygnusRFI/blob/master/rfi_plotter.py#L40-L48).
 
 ### Averaged Spectrum Derivation
-If we average with respect to the frequency channels (`zmean = np.mean(a=z, axis=0)`), we get a new *1* × *2<sup>n</sup>* **row matrix** (or **row vector**), which is the <ins>averaged spectrum</ins> of the observation. This is defined at [line 39](https://github.com/0xCoto/VIRGO/blob/master/plot.py#L39) of `rfi_plotter.py`. ///
+If we average with respect to the frequency channels (`zmean = np.mean(a=z, axis=0)`), we get a new *1* × *2<sup>n</sup>* **row matrix** (or **row vector**), which is the <ins>averaged spectrum</ins> of the observation. This is defined at [line 54](https://github.com/0xCoto/CygnusRFI/blob/master/rfi_plotter.py#L54) of `rfi_plotter.py`.
 
 ## Installation
 To use **CygnusRFI**, make sure **[Python](https://www.python.org/) (Version 2.7)** and **[GNU Radio](https://wiki.gnuradio.org/index.php/InstallingGR)** (with **[gr-osmosdr](https://osmocom.org/projects/gr-osmosdr/wiki)**) are installed on your machine.
