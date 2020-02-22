@@ -3,13 +3,32 @@ import os
 import sys
 from time import sleep
 
+# Define argparse arguments
+parser = argparse.ArgumentParser()
+
+parser.add_argument("-b", "--bandwidth", type=str, required=True)
+parser.add_argument("-c", "--channels", type=str, default=1024)
+parser.add_argument("-t", "--t_int", type=str, default=0.1)
+parser.add_argument("-d", "--duration", type=str, required=True)
+parser.add_argument("-f", "--fmin", type=float, required=True)
+parser.add_argument("-F", "--fmax", type=float, required=True)
+
+args = parser.parse_args()
+
+bandwidth=args.bandwidth
+channels=args.channels
+t_int=args.t_int
+duration=args.duration
+fmin=args.fmin
+fmax=args.fmax
+
 #Define GRC observation parameters
-bandwidth = '2400000'
-channels = '2048'
-t_int = '1'
-duration = '3'
-fmin = 1310000000
-fmax = 1330000000
+bandwidth = str(bandwidth)
+channels = str(channels)
+t_int = str(t_int)
+duration = str(duration)
+fmin = float(fmin)
+fmax = float(fmax)
 
 nbins = str(int(float(t_int) * float(bandwidth)/float(channels)))
 
