@@ -23,37 +23,31 @@ The noteworthy advantage of polyphase filterbanks is **reduced spectral leakage*
 ![alt text](https://i.imgur.com/e5TwE3w.png "Spectrometer comparison regarding spectral leakage")
 Source: [Danny C. Price (2018)](https://arxiv.org/abs/1607.03579)
 
-Although not strictly necessary, in this application, minimal spectral leakage allows us to more effectively suppress sidelobes that are unintentionally produced next to the actual signal by the traditional FFT algorithm. If for any reason PFB is not used by the user (e.g. due to potential computational expense), it is suggested to at least use a window function when computing the FFT spectra.
+Although not strictly necessary, in this application, minimal spectral leakage allows us to more effectively suppress sidelobes that are unintentionally produced next to the actual signal by the traditional FFT algorithm. If for any reason PFB is not used by the user (e.g. due to potential computational expense), it is suggested to at least use a window function when computing the FFT spectra, in order to suppress the generated sidelobes to a somewhat acceptable level.
 
 ## A graphical representation of a polyphase filterbank
 ![alt text](https://i.imgur.com/HUFTmTh.png)
 Source: [Danny C. Price (2018)](https://arxiv.org/abs/1607.03579)
 
 ## Data Analysis
-Once a submitted observation is finished and the data has been acquired and stored to `observation.dat`, the FFT samples (interpreted as a [numpy array](https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html) in `plot.py` and `plot_hi.py`) constitute the **dynamic spectrum (waterfall)**, from which the **averaged spectrum** and **time series (power vs time)** of the observation can be derived.
+Once a single spectrum observation is finished and the data has been acquired and stored to `X.dat`, the FFT samples (interpreted as a [numpy array](https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html) in `rfi_plotter.py`) constitute the **dynamic spectrum (waterfall)**, from which the **averaged spectrum** of the observation can be derived.
 
 We can mathematically interpret the dynamic spectrum as a two-dimensional matrix with ***m*** rows and ***2<sup>n</sup>*** columns, where *m* ∈ ℕ\* is the total number of FFT samples (integrations) and *2<sup>n</sup>*, *n* ∈ ℕ is the number of frequency channels (FFT size).
 
-In `plot.py` and `plot_hi.py`, this matrix is defined as a 2D numpy array at [line 29](https://github.com/0xCoto/VIRGO/blob/master/plot.py#L29) and [line 58](https://github.com/0xCoto/VIRGO/blob/master/plot_hi.py#L58) respectively.
+In `rfi_plotter.py`, this matrix is defined as a 2D numpy array at [line 29](https://github.com/0xCoto/VIRGO/blob/master/plot.py#L29). //EDIT MEEEEEEEEEEEEEEEEEEEEEEEE
 
 ![alt text](https://i.imgur.com/JksgAav.png)
 
-### Time Series Derivation
-If we take the average of this matrix with respect to time (`w = np.mean(a=z, axis=1)`), we get a new *m* × *1* **column matrix** (or **column vector**), which is the <ins>time series (power vs time)</ins> of the observation. This is defined at [line 33](https://github.com/0xCoto/VIRGO/blob/master/plot.py#L33) and [line 88](https://github.com/0xCoto/VIRGO/blob/master/plot_hi.py#L88) of `plot.py` and `plot_hi.py` respectively.
-
 ### Averaged Spectrum Derivation
-Similarly, if we average with respect to the frequency channels (`zmean = np.mean(a=z, axis=0)`), we get a new *1* × *2<sup>n</sup>* **row matrix** (or **row vector**), which is the <ins>averaged spectrum</ins> of the observation. This is defined at [line 39](https://github.com/0xCoto/VIRGO/blob/master/plot.py#L39) and [line 64](https://github.com/0xCoto/VIRGO/blob/master/plot_hi.py#L64) of `plot.py` and `plot_hi.py` respectively.
-
-### Calibrated Spectrum Derivation
-To get the <ins>calibrated spectrum</ins>, we could simply subtract the ***OFF*** spectrum (obtained from an observation of e.g. the cold sky) from the ***ON*** spectrum (Z<sub>ON<sub>mean</sub></sub> − Z<sub>OFF<sub>mean</sub></sub>). However, because the system temperature of a radio telescope (T<sub>sys</sub>) is generally variable with time and temperature, the noise floor will not be at a constant level. For this reason, it is more appropriate to choose division over subtraction (Z<sub>ON<sub>mean</sub></sub> / Z<sub>OFF<sub>mean</sub></sub>), in order to account for the variability of thse noise floor. The calibrated spectrum is computed at [line 85](https://github.com/0xCoto/VIRGO/blob/master/plot_hi.py#L85) of `plot_hi.py`.
+If we average with respect to the frequency channels (`zmean = np.mean(a=z, axis=0)`), we get a new *1* × *2<sup>n</sup>* **row matrix** (or **row vector**), which is the <ins>averaged spectrum</ins> of the observation. This is defined at [line 39](https://github.com/0xCoto/VIRGO/blob/master/plot.py#L39) of `rfi_plotter.py`. //EDIT MEEEEEEEEEEEEEEEEEEEEEEEE
 
 ## Installation
-To use **VIRGO**, make sure **[Python](https://www.python.org/) (Version 2.7)** and **[GNU Radio](https://wiki.gnuradio.org/index.php/InstallingGR)** (with **[gr-osmosdr](https://osmocom.org/projects/gr-osmosdr/wiki)**) are installed on your machine.
+To use **CygnusRFI**, make sure **[Python](https://www.python.org/) (Version 2.7)** and **[GNU Radio](https://wiki.gnuradio.org/index.php/InstallingGR)** (with **[gr-osmosdr](https://osmocom.org/projects/gr-osmosdr/wiki)**) are installed on your machine.
 
 Once Python and GNU Radio are installed on your system, navigate to a directory of your choice (e.g. `cd Desktop`) and run:
 
 ```
-git clone https://github.com/0xCoto/VIRGO
+git clone https://github.com/0xCoto/CygnusRFI
 ```
 
 #### If you do not use an RTL-SDR
@@ -64,24 +58,19 @@ Once the repository has been cloned, open `pfb.grc` using GNU Radio Companion an
 (You only need to do this once.)
 
 ## Usage
-Once **VIRGO** is downloaded on your system and the SDR Source block has been replaced (unless you use an RTL-SDR where you shouldn't need to change anything), you can begin observing with **VIRGO** by running:
+Once **CygnusRFI** is downloaded on your system and the `SDR Source` block has been replaced (unless you use an RTL-SDR where you shouldn't need to change anything), you can begin monitoring RFI with **CygnusRFI** by running:
 
 ```
-python observe.py
+python CygnusRFI.py
 ```
 
-From there, the interactive software should ask you for the parameters of your observation, which you can simple enter in and let **VIRGO** do its magic! Once the observation is finished, your data will be processed, analyzed and saved as `plot.png` (in the same directory as `observe.py`).
+From there, the interactive software should ask you for the parameters of your RFI measurement, which you can simple enter in and let **CygnusRFI** do its magic! Once the observation is finished, your data will be processed, analyzed and saved as `rfi_plot.png` (in the same directory as `observe.py`).
 
 ## To do
-- [x] Add list of radio telescopes using software based on **VIRGO**
-- [ ] Implement additional horizontal axis on the calibrated spectrum to display relative velocity (derived from Δf = f<sub>rest</sub> − f<sub>obs</sub>)
-- [ ] Improve the UI by adding **bold text** and *colors*
+- [ ] Argparse argument support
+- [ ] Support spectrum calibration to flatten the bandpass shape of the SDR out
 
 ## Credits
-**VIRGO** was created by **[Apostolos Spanakis-Misirlis](https://www.github.com/0xCoto/)**.
+**CygnusRFI** was created by **[Apostolos Spanakis-Misirlis](https://www.github.com/0xCoto/)**.
 
 **Contact:** [0xcoto@protonmail.com](mailto:0xcoto@protonmail.com)
-
----
-
-Special thanks to **Dr. Cees Bassa** and **Dr. Cameron Van Eck** for their valuable contributions.
