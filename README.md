@@ -8,7 +8,7 @@
 
 A list of GRC-supported SDRs can be found [here](https://wiki.gnuradio.org/index.php/Hardware).
 
-![alt text](https://i.imgur.com/zS5ZjK0.png) //SCREENSHOT OF TERMINAL
+![alt text](https://i.imgur.com/iOfr1u3.png)
 
 ## Example RFI Measurement
 ![alt text](https://i.imgur.com/LOeADlg.png "Example Measurement")
