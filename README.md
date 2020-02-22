@@ -10,8 +10,8 @@ A list of GRC-supported SDRs can be found [here](https://wiki.gnuradio.org/index
 
 ![alt text](https://i.imgur.com/zS5ZjK0.png) //SCREENSHOT OF TERMINAL
 
-## Example Observation
-![alt text](https://i.imgur.com/K8g0wVd.png "Example Observation") //RFI PLOT IMAGE EXAMPLE
+## Example RFI Measurement
+![alt text](https://i.imgur.com/LOeADlg.png "Example Measurement")
 
 ## GRC Data Acquisition Flowgraph
 **CygnusRFI** is a [**polyphase filterbank** spectrometer](https://arxiv.org/abs/1607.03579). The raw I/Q samples are processed in real time using GNU Radio, with the amount of data stored to file being drastically reduced for further analysis. The following flowgraph handles the acquisition and early-stage processing of the data:
