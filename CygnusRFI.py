@@ -72,7 +72,7 @@ if proceed.lower() != 'n' and proceed.lower() != 'no':
     print('\033[1;33;48m+=================================================================+\n')
     
     q=0
-    for freq in range(fmin, fmax, int(bandwidth)):
+    for freq in range(int(fmin), int(fmax), int(bandwidth)):
         print("\033[1;33;48m\n---------------------------------------------------------------------------\n  \033[1;33;48m[*] \033[1;32;48mCurrently monitoring f_center = "+str(0.000001*freq)+" +/- "+str(float(float(bandwidth)*0.000001)/2)+" MHz (iteration: "+str(q)+")...\n\033[1;33;48m---------------------------------------------------------------------------")
         
         #Define observation frequency
