@@ -57,7 +57,7 @@ print('\033[1;32;48mBandwidth per spectrum: \033[1;36;48m'+str(float(bandwidth)/
 sleep(0.15)
 print('\033[1;32;48mIntegration time per spectrum: \033[1;36;48m'+duration+' sec')
 sleep(0.15)
-print('\033[1;32;48mNumber of channels per spectrum (FFT Size): \033[1;36;48m'+str(float(bandwidth)/1000000)+' MHz')
+print('\033[1;32;48mNumber of channels per spectrum (FFT Size): \033[1;36;48m'+str(channels))
 sleep(0.15)
 print('\033[1;32;48mIntegration time per FFT sample: \033[1;36;48m'+t_int+' sec')
 sleep(0.5)
