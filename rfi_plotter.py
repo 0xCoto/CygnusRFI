@@ -77,7 +77,10 @@ try:
         ax1.ticklabel_format(useOffset=False)
         ax1.set_xlabel("Frequency (MHz)", labelpad=25)
         ax1.set_ylabel("Relative Power (dB)", labelpad=25)
-        ax1.set_title("\nAveraged RFI Spectrum", pad=25)
+        try:
+            ax1.set_title("\nAveraged RFI Spectrum", pad=25)
+        except:
+            ax1.set_title("\nAveraged RFI Spectrum")
         ax1.annotate('Frequency range scanned: '+str(float(fminimum)/1000000)+'-'+str(float(fmaximum)/1000000)+' MHz ($\\Delta\\nu$ = '+str(float((fmaximum)-float(fminimum))/1000000)+' MHz)\nBandwidth per spectrum: '+str(float(samp_rate)/1000000)+' MHz\nIntegration time per spectrum: '+str(dur)+" sec\nNumber of channels per spectrum (FFT size): "+str(nchan), xy=(17, 1179), xycoords='axes points', size=32, ha='left', va='top', color='brown')
         ax1.grid()
         
